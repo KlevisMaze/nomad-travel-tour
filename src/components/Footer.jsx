@@ -15,8 +15,8 @@ import {
 
 function Footer() {
   return (
-    <footer className="bg-gray-800 text-white py-8">
-      <div className="container mx-auto px-4">
+    <footer className="bg-gray-800 text-white py-10">
+      <div className="container mx-auto px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo and Description in a Row */}
           <div className="flex flex-col items-center text-center space-y-4 md:col-span-1">
@@ -59,18 +59,22 @@ function Footer() {
             <h3 className="font-bold mb-4">Contact Us</h3>
 
             <div className="flex items-center justify-center space-x-2 text-sm">
-              <FaEnvelope className="text-blue-500" />
+              <FaEnvelope className="text-orange-500" />
               <span>Email: info@travelagency.com</span>
             </div>
 
             <div className="flex items-center justify-center space-x-2 text-sm">
-              <FaPhoneAlt className="text-green-500" />
+              <FaPhoneAlt className="text-orange-500" />
               <span>Phone: +355 123 4567</span>
             </div>
 
             <div className="flex items-center justify-center space-x-2 text-sm">
-              <FaMapMarkerAlt className="text-red-500" />
+              <FaMapMarkerAlt className="text-orange-500" />
               <span>Address: Albania, Tirana</span>
+            </div>
+            <div className="flex items-center justify-center space-x-2 text-sm">
+              <FaGlobe className="text-orange-500" />
+              <span>www.nomadtraveltours.com</span>
             </div>
           </div>
 
@@ -107,7 +111,9 @@ function Footer() {
         </div>
         <hr className="my-8 border-gray-700" />
         <p className="text-sm text-gray-400 text-center">
-          © 2024 Travel Agency. All rights reserved.
+          © 2024{" "}
+          <span className="text-orange-500">Nomad Travel & Tours Agency</span>.
+          All rights reserved.
         </p>
       </div>
     </footer>
