@@ -14,6 +14,17 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  // Function to open dropdown
+  const handleMouseEnter = () => {
+    setIsDropdownOpen(true);
+  };
+
+  // Function to close dropdown
+  const handleMouseLeave = () => {
+    setIsDropdownOpen(false);
+  };
   return (
     <nav
       className={`flex items-center justify-around p-4 shadow-lg fixed w-full z-10 transition-colors duration-300 ${
@@ -45,12 +56,25 @@ const Navbar = () => {
         <a href="/Mice" className="text-3xl font-bold hover:text-orange-600">
           M.I.C.E
         </a>
-        <nav className="relative ">
-          <div className="group inline-block ">
+        <nav className="relative">
+          <div
+            className="inline-block"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            {/* Main Transport Link */}
             <a href="#" className="text-3xl font-bold hover:text-orange-600">
               Transport
             </a>
-            <div className="absolute hidden group-hover:block shadow-lg w-full z-auto transition-colors duration-1000 rounded-md mt-2">
+
+            {/* Dropdown Menu */}
+            <div
+              className={`absolute ${
+                isDropdownOpen ? "block" : "hidden"
+              } shadow-lg w-full z-10 transition-opacity duration-500 rounded-md mt-2`}
+              onMouseEnter={handleMouseEnter} // Keep dropdown open when hovering over the menu
+              onMouseLeave={handleMouseLeave} // Close dropdown when mouse leaves the menu area
+            >
               <a
                 href="/rental-car"
                 className="block px-4 py-2 text-2xl font-bold text-orange-700 hover:bg-gray-100 whitespace-nowrap"
@@ -59,7 +83,7 @@ const Navbar = () => {
               </a>
               <a
                 href="/transfer"
-                className="block px-4 py-2 text-2xl font-bold text-orange-700 hover:bg-gray-100"
+                className="block px-4 py-2 text-2xl font-bold text-orange-700 hover:bg-gray-100 whitespace-nowrap"
               >
                 Transfer
               </a>
