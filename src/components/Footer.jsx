@@ -26,22 +26,22 @@ function Footer() {
             <h3 className="font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#hotels" className="hover:underline">
+                <a href="src/pages/Hotels.jsx" className="hover:underline">
                   Hotels
                 </a>
               </li>
               <li>
-                <a href="#tours" className="hover:underline">
+                <a href="src/pages/Tours.jsx" className="hover:underline">
                   Tours
                 </a>
               </li>
               <li>
-                <a href="#excursions" className="hover:underline">
+                <a href="src/pages/Excursions.jsx" className="hover:underline">
                   Excursions
                 </a>
               </li>
               <li>
-                <a href="#transport" className="hover:underline">
+                <a href="src/pages/Transport.jsx" className="hover:underline">
                   Transport
                 </a>
               </li>
