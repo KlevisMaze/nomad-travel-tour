@@ -6,6 +6,12 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaGlobe,
+} from "react-icons/fa";
 
 function Footer() {
   return (
@@ -13,7 +19,7 @@ function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo and Description in a Row */}
-          <div className="flex items-center space-x-4 md:col-span-1">
+          <div className="flex flex-col items-center text-center space-y-4 md:col-span-1">
             <img src="src/images/nomadlogo.png" alt="Logo" className="w-20" />
             <p className="text-sm">
               Providing exceptional travel and tour experiences to explore the
@@ -23,8 +29,8 @@ function Footer() {
 
           {/* Quick Links */}
           <div className="text-center">
-            <h3 className="font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2 text-sm">
+            <h3 className="font-bold mb-4">Quick Links</h3>
+            <ul className="space-y-2 text-m">
               <li>
                 <a href="src/pages/Hotels.jsx" className="hover:underline">
                   Hotels
@@ -49,11 +55,23 @@ function Footer() {
           </div>
 
           {/* Contact Information */}
-          <div className="text-center">
-            <h3 className="font-semibold mb-4">Contact Us</h3>
-            <p className="text-sm">Email: info@travelagency.com</p>
-            <p className="text-sm">Phone: +355 123 4567</p>
-            <p className="text-sm">Address: Albania, Tirana</p>
+          <div className="text-center space-y-2">
+            <h3 className="font-bold mb-4">Contact Us</h3>
+
+            <div className="flex items-center justify-center space-x-2 text-sm">
+              <FaEnvelope className="text-blue-500" />
+              <span>Email: info@travelagency.com</span>
+            </div>
+
+            <div className="flex items-center justify-center space-x-2 text-sm">
+              <FaPhoneAlt className="text-green-500" />
+              <span>Phone: +355 123 4567</span>
+            </div>
+
+            <div className="flex items-center justify-center space-x-2 text-sm">
+              <FaMapMarkerAlt className="text-red-500" />
+              <span>Address: Albania, Tirana</span>
+            </div>
           </div>
 
           {/* Social Media */}
