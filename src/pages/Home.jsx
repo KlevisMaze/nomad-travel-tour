@@ -11,27 +11,27 @@ import Review from "../components/Reviews";
 
 const slides = [
   {
-    image: "src/images/image1.jpg",
-    title: "RENT A CAR",
+    image: "src/images/image5.jpg",
+    title: "TRANSFER SERVICE",
     description: "Safe. Limitless. Insurances included.",
     buttonText: "Learn More",
   },
   {
-    image: "src/images/image2.jpg",
+    image: "src/images/image5.jpg",
     title: "EXPLORE TOURS",
     description: "Discover amazing tours tailored for you.",
     buttonText: "See Tours",
   },
   {
-    image: "src/images/image3.jpg",
+    image: "src/images/image5.jpg",
     title: "HOTEL BOOKING",
     description: "Find the best hotels at unbeatable prices.",
     buttonText: "Book Now",
   },
   {
-    image: "src/images/image4.jpg",
-    title: "CRUISE SHIP HANDLING",
-    description: "Experience unforgettable cruise adventures.",
+    image: "src/images/image5.jpg",
+    title: "OUR EXCURSION",
+    description: "Experience unforgettable of our adventures.",
     buttonText: "Get Started",
   },
 ];
@@ -120,7 +120,7 @@ function Home() {
       <Navbar />
 
       {/* Slideshow Section */}
-      <section className="relative w-full h-[100vh]">
+      <section className="relative w-full h-[100vh] hover:shadow-2xl">
         <div
           className="absolute inset-0 bg-cover bg-center transition-all duration-1000"
           style={{
@@ -142,12 +142,11 @@ function Home() {
         </div>
       </section>
 
-      {/* Guaranteed Section */}
-      <section className="py-1 bg-blue-100">
+      <section className="py-12 bg-white">
         <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-6">
           {/* Guaranteed Departures */}
-          <div className="flex-1 p-6 bg-white rounded-lg shadow-lg text-center md:text-left mb-6 md:mb-0 md:mr-4 hover:shadow-xl transition-shadow duration-300">
-            <h2 className="text-4xl font-bold text-red-600 text-center mb-2 uppercase">
+          <div className="flex-1 p-8 bg-white rounded-lg shadow-lg text-center md:text-left mb-8 md:mb-0 md:mr-4 transition duration-300 transform hover:shadow-2xl hover:-translate-y-2 hover:text-red-600 shadow-green">
+            <h2 className="text-4xl font-bold text-green-600 text-center mb-4 uppercase transition duration-300 transform hover:scale-105">
               Guaranteed Departures
             </h2>
             {/* <button
@@ -159,8 +158,8 @@ function Home() {
           </div>
 
           {/* Private Tours */}
-          <div className="flex-1 p-6 bg-white rounded-lg shadow-lg text-center md:text-left md:ml-4 hover:shadow-xl transition-shadow duration-300">
-            <h2 className="text-4xl font-bold text-blue-600 text-center mb-2 uppercase">
+          <div className="flex-1 p-8 bg-white rounded-lg shadow-lg text-center md:text-left mb-8 md:mb-0 md:mr-4 transition duration-300 transform hover:shadow-2xl hover:-translate-y-2 hover:text-blue-600 shadow-green">
+            <h2 className="text-4xl font-bold text-green-600 text-center mb-4 uppercase transition duration-300 transform hover:scale-105">
               Private Tours
             </h2>
             {/* <button
@@ -172,10 +171,10 @@ function Home() {
           </div>
         </div>
         {/* Request Tour Button */}
-        <div className="flex justify-center my-8">
+        <div className="flex justify-center mt-12">
           <button
             onClick={openRequestTourModal}
-            className="px-6 py-3 bg-red-500 hover:bg-red-400 text-white rounded-md font-semibold transition duration-300"
+            className="px-20 py-8 rounded-lg shadow-lg md:text-left md:mb-0 md:mr-4 hover:shadow-2xl hover:-translate-y-2 hover:text-white shadow-green bg-yellow-500 hover:bg-orange-400 text-4xl font-semibold text-white text-center mb-4 uppercase transition duration-300 transform hover:scale-105"
           >
             Request a Tour
           </button>
@@ -183,14 +182,17 @@ function Home() {
       </section>
 
       {/* Main Content Sections */}
-      <main className="mt-8 space-y-16">
+      <main className="mt-8 space-y-16 shadow-2xl">
         {/* Hotels Section */}
-        <section id="hotels" className="relative px-4">
-          <div className="flex justify-between items-center">
-            <h2 className="text-2xl font-bold mb-4">Top hotels</h2>
+        <section
+          id="hotels"
+          className="w-[90%] mx-auto my-8 px-4 py-5 shadow-2xl"
+        >
+          <div className="flex justify-between px-2 py-2 items-center rounded-lg">
+            <h2 className="text-4xl font-bold mb-4">Top Hotels</h2>
             <button
               onClick={() => navigate("hotels")}
-              className="text-red-500 hover:underline"
+              className="text-3xl rounded-sm font-semibold text-red-500 hover:underline"
             >
               View All
             </button>
@@ -199,12 +201,15 @@ function Home() {
         </section>
 
         {/* Tours Section */}
-        <section id="tours" className="relative px-4">
+        <section
+          id="tours"
+          className="w-[90%] mx-auto my-8 px-4 py-5 shadow-2xl"
+        >
           <div className="flex justify-between items-center">
-            <h2 className="text-2xl font-bold mb-4">Top Tours</h2>
+            <h2 className="text-4xl font-bold mb-4">Top Tours</h2>
             <button
               onClick={() => navigate("tours")}
-              className="text-red-500 hover:underline"
+              className="text-3xl rounded-sm font-semibold text-red-500 hover:underline"
             >
               View All
             </button>
@@ -213,12 +218,15 @@ function Home() {
         </section>
 
         {/* Excursions Section */}
-        <section id="excursions" className="relative px-4">
+        <section
+          id="excursions"
+          className="w-[90%] mx-auto my-8 px-4 py-5 shadow-2xl"
+        >
           <div className="flex justify-between items-center">
-            <h2 className="text-2xl font-bold mb-4">Top Excursions</h2>
+            <h2 className="text-4xl font-bold mb-4">Top Excursions</h2>
             <button
               onClick={() => navigate("excursions")}
-              className="text-red-500 hover:underline"
+              className="text-3xl rounded-sm font-semibold text-red-500 hover:underline"
             >
               View All
             </button>

@@ -1,7 +1,9 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
+// Tours.js
 import React from "react";
 
-const Transport = () => (
+const Mice = () => (
   <div className="p-8">
     <h2 className="text-2xl font-semibold">Transport Options</h2>
     <div className="mt-4">
@@ -14,5 +16,4 @@ const Transport = () => (
     </div>
   </div>
 );
-
-export default Transport;
+export default Mice;
