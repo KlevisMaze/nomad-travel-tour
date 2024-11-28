@@ -116,9 +116,6 @@ function Home() {
 
   return (
     <div>
-      {/* Navbar Component */}
-      <Navbar />
-
       {/* Slideshow Section */}
       <section className="relative w-full h-[100vh] hover:shadow-2xl">
         <div
@@ -279,7 +276,6 @@ function Home() {
       {isRequestTourModalOpen && (
         <RequestTourModal onClose={closeRequestTourModal} />
       )} */}
-      <Footer />
       {/* Request Tour Modal */}
       <RequestTourModal
         isOpen={isRequestTourModalOpen} // Pass `isOpen` prop

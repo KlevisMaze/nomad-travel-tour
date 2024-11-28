@@ -55,17 +55,17 @@ function Footer() {
           </div>
 
           {/* Contact Information */}
-          <div className="text-center space-y-2">
+          <div className="text-center space-y-4">
             <h3 className="font-bold mb-4">Contact Us</h3>
 
             <div className="flex items-center justify-center space-x-2 text-sm">
               <FaEnvelope className="text-orange-500" />
-              <span>Email: info@travelagency.com</span>
+              <span>info@travelagency.com</span>
             </div>
 
             <div className="flex items-center justify-center space-x-2 text-sm">
               <FaPhoneAlt className="text-orange-500" />
-              <span>Phone: +355 123 4567</span>
+              <span>+355 123 4567</span>
             </div>
 
             <div className="flex items-center justify-center space-x-2 text-sm">
@@ -81,12 +81,13 @@ function Footer() {
           {/* Social Media */}
           <div className="text-center">
             <h3 className="font-semibold mb-4">Follow Us</h3>
-            <div className="flex justify-center md:justify-center space-x-4">
+            <div className="flex justify-center space-x-6">
               <a
                 href="https://www.facebook.com/nomadtravel2019/"
                 className="text-gray-400 hover:text-white"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Follow us on Facebook"
               >
                 <FontAwesomeIcon icon={faFacebookF} size="lg" />
               </a>
@@ -95,6 +96,7 @@ function Footer() {
                 className="text-gray-400 hover:text-white"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Follow us on Instagram"
               >
                 <FontAwesomeIcon icon={faInstagram} size="lg" />
               </a>
@@ -103,6 +105,7 @@ function Footer() {
                 className="text-gray-400 hover:text-white"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Follow us on Twitter"
               >
                 <FontAwesomeIcon icon={faTwitter} size="lg" />
               </a>

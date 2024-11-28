@@ -2,6 +2,8 @@
 /* eslint-disable no-unused-vars */
 // Excursions.js
 import React from "react";
+import image5 from "../images/image5.jpg";
+import { Link } from "react-router-dom";
 
 const excursionsList = [
   {
@@ -50,40 +52,50 @@ const excursionsList = [
     name: "Lazure hotel and marinas",
     location: "Herceg Novi",
     rating: 5,
-    imageUrl: "src/images/excursion4.jpg",
+    imageUrl: "src/images/image5.jpg",
   },
 ];
 
-const Excursions = ({ limit }) => {
-  const displayedExcursionList = limit
-    ? excursionsList.slice(0, limit)
-    : excursionsList;
-  return (
-    <div>
+const Excursions = () => (
+  <div>
+    {/* Hero Section */}
+    <div className="relative">
+      <img src={image5} alt="Image" className="w-full h-64 object-cover" />
+      <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <h1 className="text-5xl font-bold text-white">Our Excursions</h1>
+      </div>
+    </div>
+
+    {/* Excursions List Section */}
+    <div className="container mx-auto p-6 mt-8">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {displayedExcursionList.map((excursion, index) => (
-          <div
+        {excursionsList.map((excursions, index) => (
+          <Link
+            to={`/excursions/${encodeURIComponent(excursions.name)}`}
             key={index}
-            className="bg-white rounded-lg shadow-md overflow-hidden"
+            className="group"
           >
-            <img
-              src={excursion.imageUrl}
-              alt={excursion.name}
-              className="w-full h-40 object-cover"
-            />
-            <div className="p-4">
-              <p className="text-sm text-gray-500">Excursion</p>
-              <h3 className="text-lg font-semibold">{excursion.name}</h3>
-              <p className="text-sm text-gray-400">{excursion.location}</p>
-              <div className="flex items-center mt-2">
-                <span className="text-gray-500">⭐ {excursion.rating}</span>
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
+              <img
+                src={excursions.imageUrl}
+                alt={excursions.name}
+                className="w-full h-40 object-cover"
+              />
+              <div className="p-4">
+                <p className="text-sm text-gray-500">Excursions</p>
+                <h3 className="text-lg font-semibold">{excursions.name}</h3>
+                <p className="text-sm text-gray-400">{excursions.location}</p>
+                <h2 className="text-sm text-gray-600">{excursions.days}</h2>
+                <div className="flex items-center mt-2">
+                  <span className="text-gray-500">⭐ {excursions.rating}</span>
+                </div>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
-  );
-};
+  </div>
+);
 
 export default Excursions;

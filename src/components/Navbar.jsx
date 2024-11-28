@@ -1,145 +1,116 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Handle scroll to add background
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 0);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Dropdown menu handlers
-  const handleMouseEnter = () => {
-    setIsDropdownOpen(true);
-  };
-  const handleMouseLeave = () => {
-    setIsDropdownOpen(false);
-  };
-
-  // Mobile menu toggle
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
   return (
     <nav
-      className={`flex items-center justify-around p-4 shadow-lg fixed w-full z-10 transition-colors duration-300 ${
+      className={`fixed w-full z-20 p-6 shadow-lg transition-colors duration-300 bg-yellow-500 ${
         isScrolled ? "bg-yellow-500" : "bg-transparent"
       }`}
     >
-      {/* Logo Section */}
-      <div className="flex items-center">
-        <img src="src/images/nomadlogo.png" alt="Logo" className="h-12 mr-5" />
-        <span className="text-3xl font-bold text-white">
-          Nomad Travel & Tours
-        </span>
-      </div>
+      <div className="flex justify-between items-center max-w-screen-xl mx-auto">
+        {/* Logo Section */}
+        <div className="flex items-center">
+          <Link to="/">
+            <img
+              src="src/images/nomadlogo.png"
+              alt="Logo"
+              className="h-12 mr-4"
+            />
+          </Link>
+        </div>
 
-      {/* Links Section for Desktop */}
-      <div className="hidden md:flex space-x-6 text-white font-bold text-lg">
-        <a href="/hotels" className="text-3xl font-bold hover:text-orange-600">
-          Hotels
-        </a>
-        <a href="/tours" className="text-3xl font-bold hover:text-orange-600">
-          Tours
-        </a>
-        <a
-          href="/excursions"
-          className="text-3xl font-bold hover:text-orange-600"
-        >
-          Excursions
-        </a>
-        <a href="/Mice" className="text-3xl font-bold hover:text-orange-600">
-          M.I.C.E
-        </a>
-        <nav className="relative">
-          <div
-            className="inline-block"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <a href="#" className="text-3xl font-bold hover:text-orange-600">
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex space-x-6 text-white font-bold text-lg">
+          {["Hotels", "Tours", "Excursions", "M.I.C.E"].map((item, idx) => (
+            <li key={idx}>
+              <a
+                href={`/${item.toLowerCase()}`}
+                className="hover:text-orange-600"
+              >
+                {item}
+              </a>
+            </li>
+          ))}
+          {/* Dropdown */}
+          <li className="relative">
+            <a
+              href="#"
+              onMouseEnter={() => setIsDropdownOpen(true)}
+              onMouseLeave={() => setIsDropdownOpen(false)}
+              className="hover:text-orange-600"
+            >
               Transport
             </a>
-            <div
-              className={`absolute ${
-                isDropdownOpen ? "block" : "hidden"
-              } shadow-lg w-full z-10 transition-opacity duration-500 rounded-md mt-2`}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
-              <a
-                href="/rental-car"
-                className="block px-4 py-2 text-2xl font-bold text-orange-700 hover:bg-gray-100 whitespace-nowrap"
+            {isDropdownOpen && (
+              <ul
+                className="absolute left-0 mt-2 bg-white text-orange-700 shadow-lg rounded-md"
+                onMouseEnter={() => setIsDropdownOpen(true)}
+                onMouseLeave={() => setIsDropdownOpen(false)}
               >
-                Rental Car
-              </a>
-              <a
-                href="/transfer"
-                className="block px-4 py-2 text-2xl font-bold text-orange-700 hover:bg-gray-100 whitespace-nowrap"
-              >
-                Transfer
-              </a>
-            </div>
-          </div>
-        </nav>
-      </div>
+                {["Rental Car", "Transfer"].map((subItem, idx) => (
+                  <li key={idx}>
+                    <a
+                      href={`/${subItem.toLowerCase().replace(" ", "-")}`}
+                      className="block px-4 py-2 hover:bg-gray-100"
+                    >
+                      {subItem}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+        </ul>
 
-      {/* Contact Info */}
-      <div className="hidden md:flex flex-col items-center text-gray-100 font-semibold text-xl space-y-2">
-        <span>Email: info@nomadtours.com</span>
-        <span>Contact: +355 67 609 0069</span>
-      </div>
+        {/* Contact Info */}
+        <div className="hidden md:flex flex-col items-end text-gray-100 text-sm">
+          <span>Email: info@nomadtours.com</span>
+          <span>Contact: +355 67 609 0069</span>
+        </div>
 
-      {/* Mobile Menu Button */}
-      <button
-        onClick={toggleMobileMenu}
-        className="md:hidden text-white font-bold text-lg"
-      >
-        ☰
-      </button>
+        {/* Mobile Menu Toggle */}
+        <button
+          aria-label="Toggle mobile menu"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="md:hidden text-white"
+        >
+          ☰
+        </button>
+      </div>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="absolute top-full left-0 w-full bg-yellow-500 text-white text-center flex flex-col py-4 space-y-2 md:hidden">
-          <a
-            href="/hotels"
-            className="text-2xl font-bold hover:text-orange-600"
-          >
-            Hotels
-          </a>
-          <a href="/tours" className="text-2xl font-bold hover:text-orange-600">
-            Tours
-          </a>
-          <a
-            href="/excursions"
-            className="text-2xl font-bold hover:text-orange-600"
-          >
-            Excursions
-          </a>
-          <a href="/Mice" className="text-2xl font-bold hover:text-orange-600">
-            M.I.C.E
-          </a>
-          <a
-            href="/rental-car"
-            className="text-2xl font-bold hover:text-orange-600"
-          >
-            Rental Car
-          </a>
-          <a
-            href="/transfer"
-            className="text-2xl font-bold hover:text-orange-600"
-          >
-            Transfer
-          </a>
-        </div>
+        <ul className="absolute left-0 top-full w-full bg-yellow-500 text-white flex flex-col space-y-2 py-4 text-center">
+          {[
+            "Hotels",
+            "Tours",
+            "Excursions",
+            "M.I.C.E",
+            "Rental Car",
+            "Transfer",
+          ].map((item, idx) => (
+            <li key={idx}>
+              <a
+                href={`/${item.toLowerCase().replace(" ", "-")}`}
+                className="text-lg font-bold hover:text-orange-600"
+              >
+                {item}
+              </a>
+            </li>
+          ))}
+        </ul>
       )}
     </nav>
   );
