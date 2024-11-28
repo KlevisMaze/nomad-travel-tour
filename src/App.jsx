@@ -7,7 +7,8 @@ import Excursions from "./pages/Excursions";
 import Transport from "./pages/Transport";
 import Home from "./pages/Home";
 import TourDetails from "./pages/TourDetails";
-import Layout from "./components/Layout"; // Import Layout
+import Layout from "./components/Layout";
+import ExcursionDetails from "./pages/ExcursionsDetails";
 
 function App() {
   return (
@@ -17,7 +18,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/hotels" element={<Hotels />} />
           <Route path="/tours" element={<Tours />} />
+          <Route path="/tours/:name" element={<TourDetails />} />
           <Route path="/excursions" element={<Excursions />} />
+          <Route path="/excursions/:name" element={<ExcursionDetails />} />
           <Route path="/transport" element={<Transport />} />
           <Route path="/tours/:tourName" element={<TourDetails />} />
         </Routes>

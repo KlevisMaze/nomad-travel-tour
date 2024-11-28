@@ -5,11 +5,11 @@ import image5 from "../images/image5.jpg";
 
 const toursList = [
   {
-    name: "Theth-Valbone",
-    location: "Theth",
+    name: "Balkan Tour",
+    location: "Albania, Kosova, North Macedonia",
     rating: 5,
     imageUrl: "src/images/image1.jpg",
-    days: "4 days",
+    days: "11 days",
   },
   {
     name: "Mountain Adventure",
