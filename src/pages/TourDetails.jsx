@@ -28,7 +28,7 @@ const toursList = [
           <strong key="3">Overnight in Durres</strong>,
           ".",
         ],
-        imageUrl: "/images/tours/",
+        imageUrl: "/images/tours/durres1.jpg",
       },
       {
         day: 2,
@@ -44,6 +44,7 @@ const toursList = [
           <strong key="6">Overnight in Prishtina</strong>,
           ".",
         ],
+        imageUrl: "/images/tours/durres2.jpg",
       },
       {
         day: 3,
@@ -117,6 +118,7 @@ const toursList = [
           <strong key="12">Overnight in Saranda</strong>,
           ".",
         ],
+        imageUrl: "/images/tours/vlora1.jpg",
       },
       {
         day: 7,
@@ -131,6 +133,7 @@ const toursList = [
           <strong key="12">Overnight in Saranda</strong>,
           ".",
         ],
+        imageUrl: "/images/tours/saranda1.jpg",
       },
       {
         day: 8,
@@ -149,6 +152,7 @@ const toursList = [
           <strong key="14">Overnight in Gjirokastra</strong>,
           ".",
         ],
+        imageUrl: "/images/tours/saranda2.jpg",
       },
       {
         day: 9,
@@ -165,6 +169,7 @@ const toursList = [
           <strong key="13">Overnight in Tirana</strong>,
           ".",
         ],
+        imageUrl: "/images/tours/gjirokastra1.jpg",
       },
       {
         day: 10,
@@ -311,8 +316,6 @@ const TourDetails = () => {
     return <p>Tour not found!</p>;
   }
 
-  console.log(tour); // Check the tour object
-
   return (
     <div className="p-6 bg-gray-50 min-h-screen">
       <h1 className="text-4xl font-bold text-center mb-6">{tour.name}</h1>
@@ -321,29 +324,41 @@ const TourDetails = () => {
       </p>
 
       <div className="space-y-12">
-        {tour.days.map((day, index) => (
+        {tour.details.map((day, index) => (
           <div
             key={index}
-            className={`grid grid-cols-1 md:grid-cols-2 gap-6 items-center ${
-              index % 2 === 0 ? "" : "md:flex-row-reverse"
-            }`}
+            className={`grid grid-cols-1 ${
+              index === 10 // Only apply for Day 11 (0-based index)
+                ? ""
+                : "md:grid-cols-2 gap-6 items-center"
+            } ${index % 2 === 0 ? "" : "md:flex-row-reverse"}`}
           >
             {/* Text Section */}
-            <div className="p-6">
-              <h2 className="text-2xl font-bold mb-4">
-                Day {index + 1}: {day.title}
-              </h2>
-              <p className="text-gray-700">{day.description}</p>
+            <div
+              className={`bg-white shadow-lg rounded-lg p-6 ${
+                index === 10 ? "w-full" : "h-80"
+              } overflow-hidden flex items-center justify-center`}
+            >
+              <div
+                className={`${index === 10 ? "" : "overflow-y-auto h-full"}`}
+              >
+                <h2 className="text-2xl font-bold mb-4">
+                  Day {index + 1}: {day.title}
+                </h2>
+                <p className="text-gray-700">{day.description}</p>
+              </div>
             </div>
 
             {/* Photo Section */}
-            <div className="flex justify-center">
-              <img
-                src={day.imageUrl}
-                alt={`Day ${index + 1} - ${day.title}`}
-                className="w-full h-80 object-cover rounded-lg shadow-lg"
-              />
-            </div>
+            {index !== 10 && (
+              <div className="bg-gray-100 shadow-lg rounded-lg overflow-hidden h-80 flex items-center justify-center">
+                <img
+                  src={day.imageUrl}
+                  alt={`Day ${index + 1} - ${day.title}`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            )}
           </div>
         ))}
       </div>
