@@ -22,7 +22,7 @@ function App() {
           <Route path="/excursions" element={<Excursions />} />
           <Route path="/excursions/:name" element={<ExcursionDetails />} />
           <Route path="/transport" element={<Transport />} />
-          <Route path="/tours/:tourName" element={<TourDetails />} />
+          <Route path="/tours/:Tourname" element={<TourDetails />} />
         </Routes>
       </Layout>
     </Router>

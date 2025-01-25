@@ -75,9 +75,57 @@ const Navbar = () => {
         </ul>
 
         {/* Contact Info */}
-        <div className="hidden md:flex flex-col items-end text-gray-100 text-sm">
-          <span>Email: info@nomadtours.com</span>
-          <span>Contact: +355 67 609 0069</span>
+        <div className="hidden md:flex flex-col md:flex-row md:items-center md:justify-end text-gray-100 text-base md:text-lg lg:text-xl space-y-2 md:space-y-0 md:space-x-6">
+          <a
+            href="mailto:info@nomadtours.com"
+            className="flex items-center hover:text-orange-600 transition"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-5 h-5 md:w-6 md:h-6 mr-2"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25H4.5a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5H4.5a2.25 2.25 0 00-2.25 2.25m19.5 0L12 13.5 2.25 6.75"
+              />
+            </svg>
+            <span className="text-sm md:text-base lg:text-lg">
+              info@nomadtours.com
+            </span>
+          </a>
+
+          <a
+            href="tel:+355676090069"
+            className="flex items-center hover:text-orange-600 transition"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-5 h-5 md:w-6 md:h-6 mr-2"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M2.25 6.75a2.25 2.25 0 012.25-2.25h15a2.25 2.25 0 012.25 2.25v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75z"
+              />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M9.75 11.25l4.5 2.25-4.5 2.25v-4.5z"
+              />
+            </svg>
+            <span className="text-sm md:text-base lg:text-lg">
+              +355 67 609 0069
+            </span>
+          </a>
         </div>
 
         {/* Mobile Menu Toggle */}

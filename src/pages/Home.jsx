@@ -20,7 +20,7 @@ const slides = [
     image: "src/images/image5.jpg",
     title: "EXPLORE TOURS",
     description: "Discover amazing tours tailored for you.",
-    buttonText: "See Tours",
+    buttonText: "Request a Tour",
   },
   {
     image: "src/images/image5.jpg",
@@ -215,15 +215,12 @@ function Home() {
         </section>
 
         {/* Excursions Section */}
-        <section
-          id="excursions"
-          className="w-[90%] mx-auto my-8 px-4 py-5 shadow-2xl"
-        >
+        <section id="excursions" className="container mx-auto my-8">
           <div className="flex justify-between items-center">
-            <h2 className="text-4xl font-bold mb-4">Top Excursions</h2>
+            <h2 className="text-4xl font-bold">Top Excursions</h2>
             <button
-              onClick={() => navigate("excursions")}
-              className="text-3xl rounded-sm font-semibold text-red-500 hover:underline"
+              onClick={() => navigate("/excursions")}
+              className="text-3xl font-semibold text-red-500 hover:underline"
             >
               View All
             </button>

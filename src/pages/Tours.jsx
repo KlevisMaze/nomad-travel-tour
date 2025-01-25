@@ -12,18 +12,19 @@ const toursList = [
     days: "11 days",
   },
   {
-    name: "Mountain Adventure",
-    location: "Korab",
-    rating: 4,
+    name: "Best of Albania in four days",
+    location: "Tirana, Kruja, Belsh, Berat, Zvernec, Vlora",
+    rating: 5,
     imageUrl: "src/images/image2.jpg",
     days: "4 days",
   },
   {
-    name: "Beach Relaxation",
-    location: "Gjipe",
-    rating: 4,
+    name: "Classical Highlights of Albania in seven days",
+    location:
+      "Bunk Art 1, Kruja, Shkodra, Durres, Berat, Apollonia, Zvernec, Vlora, Gjirokastra, Bunk Art 2 ",
+    rating: 5,
     imageUrl: "src/images/image4.jpg",
-    days: "4 days",
+    days: "7 days",
   },
   {
     name: "Koman Lake",
