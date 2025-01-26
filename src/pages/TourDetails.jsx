@@ -4,7 +4,6 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import image5 from "../images/image5.jpg";
 
-// Sample tours data
 const toursList = [
   {
     name: "Balkan Tour",
@@ -210,29 +209,48 @@ const toursList = [
       {
         day: 1,
         title: "Tirana walking tour - Bunk Art 2 - the House of Leaves.",
-        description: `After breakfast, Tirana Walking Tour is for people who like to see the highlights of Tirana and get a better understanding of the history of one of the most interesting capitals of Europe. The tour will lead you to Skanderbeg square. Skanderbeg Square, Ethem Bey Mosque, National Bank, Skanderbeg Monument, Pedestrian area, Castle of Tirana, The BLLOKU area. 
-Our next destination will be Bunk Art, one of Tirana's most intriguing museums. Step inside this immersive video exhibition, dedicated to unraveling the history of the Albanian communist army and offering poignant glimpses into the daily lives of citizens during that era.
-House of Leaves, In January 2015, the idea to transform the house into a museum was introduced to the public. It is situated right in the heart of the city.
-It is one of the most unusual museums in Albania. It is considered to be the equivalent of the Stasi headquarters of the former East Germany. 
-The leaves have a double meaning: things hidden in woods, but also the leave of books and files, on people. Overnight in Tirana.`,
+        description: [
+          "After breakfast, start the tour of ",
+          <strong key="10">Tirana Walking Tour</strong>,
+          ", a tour for people who like to see the highlights of Tirana and get a better understanding of the history of one of the most interesting capitals of Europe. The tour will lead you to Skanderbeg square: Skanderbeg Square, Ethem Bey Mosque, National Bank, Skanderbeg Monument, Pedestrian area, Castle of Tirana, and The BLLOKU area. Our next destination will be ",
+          <strong key="11">Bunk Art</strong>,
+          ", one of Tirana's most intriguing museums. Step inside this immersive video exhibition, dedicated to unraveling the history of the Albanian communist army and offering poignant glimpses into the daily lives of citizens during that era. ",
+          <strong key="12">House of Leaves</strong>,
+          ", in January 2015, the idea to transform the house into a museum was introduced to the public. It is situated right in the heart of the city. It is one of the most unusual museums in Albania and is considered to be the equivalent of the Stasi headquarters of the former East Germany. The leaves have a double meaning: things hidden in woods, but also the leaves of books and files, on people. ",
+          <strong key="13">Overnight in Tirana</strong>,
+          ".",
+        ],
+        imageUrl: "/images/tours/vlora4.jpg",
       },
       {
         day: 2,
         title:
           "Tirana Bunk Art 1 - Cable Car - Kruja Old Medieval Bazzar - Skenderbej & Ethnographic Museum. Overnight in Tirana. Full Day",
-        description: `After breakfast, drive to Kruja 1 hour. Kruja, hometown of National Hero Gjerjg Kastrioti Skanderbeg the Symbol of Ottoman Resistance also known as Protector of Civilization. 
-        Stroll down -The Unique Old Medieval Bazaar as one of the oldest in Albania. National Hero Skanderbeg Museum & the Ethnographic Museum (both located inside the walls of the fortress). Drive back to capital Tirana and reach the cable car of Tirana. Exploring Mount Dajti National Park after the adrenaline of the Cable Car the longest cableway in Balkan and enjoy the breathtaking views of the capital city and not only. Several activities on top available: Adventure Park, Hiking, Paragliding, Minigolf, Roller Blading available. Heading to Bunk Art 1, a huge nuclear bunker on the outskirts of Albania's capital Tirana that was intended as a shelter for dictator Enver Hoxha and the innermost circle of his government. In 2014-2016 the once secret facility was refurbished and opened as a museum and art centre. A 5-floor palace underground, with 106 rooms and an assembly hall, now turned into an historical and art center called "BUNK'ART". Overnight Tirana.`,
+        description: [
+          "After breakfast, drive to Kruja 1 hour. Kruja, hometown of National Hero Gjerjg Kastrioti Skanderbeg the Symbol of Ottoman Resistance also known as Protector of Civilization. Stroll down - The Unique Old Medieval Bazaar as one of the oldest in Albania. National Hero Skanderbeg Museum & the Ethnographic Museum (both located inside the walls of the fortress). Drive back to capital Tirana and reach the cable car of Tirana. Exploring Mount Dajti National Park after the adrenaline of the Cable Car, the longest cableway in the Balkans, and enjoy the breathtaking views of the capital city and beyond. Several activities on top available: Adventure Park, Hiking, Paragliding, Mini Golf, Roller Blading available. Heading to Bunk Art 1, a huge nuclear bunker on the outskirts of Albania's capital Tirana that was intended as a shelter for dictator Enver Hoxha and the innermost circle of his government. In 2014-2016 the once secret facility was refurbished and opened as a museum and art centre. A 5-floor palace underground, with 106 rooms and an assembly hall, now turned into a historical and art center called 'BUNK'ART'. ",
+          <strong key="10">Overnight in Tirana</strong>,
+          ".",
+        ],
       },
       {
         day: 3,
         title:
           "Belshi Lakes - Berat UNESCO & Castle - Zvernec Island - Vlora city tour. Full Day",
-        description: `After breakfast, drive via Belshi Lakes offering an impressive panorama, creating an awe-inspiring vista. Stop and visit: Berat UNESCO known as “The city of One above the other Widows that continues to be a significant city even today, boasting a remarkable history of over two millennia. Despite the passage of time, life has remained persistent here, and the Castle or “Kalaja” is the oldest district of the city. As a must following with Onufri Ichnographic Museum inside the walls of the castle. The Museum holds 200 artwork objects, icons and liturgical items dated from the 14th century to the 20th, brought together from several churches and monasteries of the region. Next stop is Zvërnec Island & Monastery. Visit Zvërnec Island, located within the Narta Lagoon and home to an ancient Byzantine Monastery, situated on an island, the monastery is a stunning example of Byzantine architecture and a peaceful place to escape from the crowded beaches of the town.
-        Independence Monument as the centerpiece of Vlore’s Square of the Flag, the Independence Monument marks Albania’s declaration of independence from the Ottoman Empire in 1912 and exemplifies the socialist-realist style. Overnight in Vlora.`,
+        description: [
+          "After breakfast, drive via Belshi Lakes offering an impressive panorama, creating an awe-inspiring vista. Stop and visit: Berat UNESCO known as 'The city of One above the other Windows' that continues to be a significant city even today, boasting a remarkable history of over two millennia. Despite the passage of time, life has remained persistent here, and the Castle or 'Kalaja' is the oldest district of the city. As a must following with Onufri Iconographic Museum inside the walls of the castle. The Museum holds 200 artwork objects, icons and liturgical items dated from the 14th century to the 20th, brought together from several churches and monasteries of the region. Next stop is Zvërnec Island & Monastery. Visit Zvërnec Island, located within the Narta Lagoon and home to an ancient Byzantine Monastery, situated on an island. The monastery is a stunning example of Byzantine architecture and a peaceful place to escape from the crowded beaches of the town. Independence Monument as the centerpiece of Vlore’s Square of the Flag, the Independence Monument marks Albania’s declaration of independence from the Ottoman Empire in 1912 and exemplifies the socialist-realist style. ",
+          <strong key="10">Overnight in Vlora</strong>,
+          ".",
+        ],
       },
       {
         day: 4,
         title: "Airport transfer.",
+        description: (
+          <>
+            Transfer to the airport.{" "}
+            <span className="text-red-500 font-bold">End of services.</span>
+          </>
+        ),
       },
     ],
   },
@@ -246,45 +264,483 @@ The leaves have a double meaning: things hidden in woods, but also the leave of 
       {
         day: 1,
         title: "Tirana city tour. Overnight in Tirana. Half Day.",
-        description: ` Meet and greet. Airport transfer. Tirana Walking Tour is for people who like to see the highlights of Tirana and get a better understanding of the history of one of the most interesting capitals of Europe. The tour will lead you to Skanderbeg square. Skanderbeg Square, Ethem Bey Mosque, National Bank, Skanderbeg Monument, Pedestrian area, Castle of Tirana, The “BLLOKU” area. Overnight in Tirana. `,
+        description: [
+          "Meet and greet. Airport transfer. ",
+          <strong key="10">Tirana Walking Tour</strong>,
+          " is for people who like to see the highlights of Tirana and get a better understanding of the history of one of the most interesting capitals of Europe. The tour will lead you to Skanderbeg square. Skanderbeg Square, Ethem Bey Mosque, National Bank, Skanderbeg Monument, Pedestrian area, Castle of Tirana, The 'BLLOKU' area. ",
+          <strong key="11">Overnight in Tirana</strong>,
+          ".",
+        ],
       },
       {
         day: 2,
         title:
           "Kruja - Museums & Castle - Old Medieval Bazaar. Shkodra & Castle – City tour & Venetian Mask Factory. Overnight Shkodra. Full Day.",
-        description: `After breakfast drive to Kruja 1 hour.  Kruja, hometown of National Hero Gjergj Kastrioti Skanderbeg the Symbol of Ottoman Resistance also known as Protector of Civilization. 
-Visit: Fortress, National Hero Skanderbeg Museum & the Ethnographic Museum (both located inside the walls of the fortress). Stroll down the Unique Old Medieval Bazaar as one of the oldest in Albania, offering a vibrant atmosphere with traditional Albanian crafts, souvenirs, and local cuisine. Having such a unique blend of historical charm and natural beauty, Krujë is simply a must-visit place. A 1.30 hrs drive to Shkodra, northwest of Albania. Go on an in-depth exploration of Shkoder on this full-day tour starting with its prehistoric Rozafa Castle as one of the oldest castles in Albania, built by the Illyrian civilization in the 4th century B. C. Continue downhill to Shkoder, to visit: The Catholic cathedral, the main Mosque, a major pedestrian boulevard, and more…. Continuing with the Venetian Mask Factory that contains the most diverse and exquisite collection of Venetian masks. The display of styles and colors is enough to immediately transport you to the atmosphere of the Venice Carnevale. The sheer originality and quality of these works, in addition to the fact that each mask is treated as a unique work of art, has contributed to this factory’s increase in worldwide popularity. Overnight in Shkodra.
-  `,
+        description: [
+          "After breakfast drive to ",
+          <strong key="10">Kruja</strong>,
+          " 1 hour. ",
+          <strong key="11">Kruja</strong>,
+          ", hometown of National Hero Gjergj Kastrioti Skanderbeg the Symbol of Ottoman Resistance also known as Protector of Civilization. Visit: ",
+          <strong key="12">
+            Fortress, National Hero Skanderbeg Museum & Ethnographic Museum
+          </strong>,
+          " (both located inside the walls of the fortress). Stroll down the ",
+          <strong key="13">Unique Old Medieval Bazaar</strong>,
+          " as one of the oldest in Albania, offering a vibrant atmosphere with traditional Albanian crafts, souvenirs, and local cuisine. Having such a unique blend of historical charm and natural beauty Kruja is simply a must-visit place. A 1.30 hrs drive to ",
+          <strong key="15">Shkodra</strong>,
+          ", northwest of Albania. Go on an in-depth exploration of Shkodra on this full-day tour starting with its prehistoric ",
+          <strong key="17">Rozafa Castle</strong>,
+          " as one of the oldest castles in Albania, built by the Illyrian civilization in the 4th century B.C. Continue downhill to Shkodra to visit: The Catholic cathedral, the main Mosque, a major ",
+          <strong key="19">pedestrian boulevard</strong>,
+          ", and more…. Continuing with the ",
+          <strong key="20">Venetian Mask Factory</strong>,
+          " that contains the most diverse and exquisite collection of Venetian masks. The display of styles and colors is enough to immediately transport you to the atmosphere of the Venice Carnevale. The sheer originality and quality of these works, in addition to the fact that each mask is treated as a unique work of art, has contributed to this factory’s increase in worldwide popularity. ",
+          <strong key="21">Overnight in Shkodra</strong>,
+          ".",
+        ],
+
+        imageUrl: "/images/tours/kruja1",
       },
       {
         day: 3,
         title:
           "Durres – Roman Amphitheatre & Venetian Tower. Berat UNESCO & Castle – Onufri Museum. Overnight in Berat. Full day",
-        description: `After breakfast, drive to Durres 2 hrs as one of the one of the biggest city ports in Albania visiting: Venetian Tower, The Regional largest Roman Amphitheater, The Promenade by the Adriatic Sea. Drive to Berat 1.15 hrs and visit: Berat UNESCO known as “The city of One above the other Widows” that continues to be a significant city even today, boasting a remarkable history of over two millennia. Despite the passage of time, life has remained persistent here, and the Castle or “Kalaja” is the oldest district of the city. As a must following with Onufri Iconographic Museum inside the walls of the castle. The Museum holds 200 artwork objects, icons and liturgical items dated from the 14th century to the 20th, brought together from several churches and monasteries of the region. Overnight in Berat.`,
+        description: [
+          "After breakfast, drive to ",
+          <strong key="10">Durres</strong>,
+          " 2 hrs as one of the biggest city ports in Albania visiting: ",
+          <strong key="11">Venetian Tower</strong>,
+          ", ",
+          <strong key="12">The Regional largest Roman Amphitheater</strong>,
+          ", ",
+          <strong key="13">The Promenade</strong>,
+          " by the Adriatic Sea. Drive to ",
+          <strong key="14">Berat UNESCO</strong>,
+          " 1.15 hrs and visit: ",
+          <strong key="15">Berat UNESCO</strong>,
+          " known as “The city of One above the other Widows” that continues to be a significant city even today, boasting a remarkable history of over two millennia. Despite the passage of time, life has remained persistent here, and the Castle or “Kalaja” is the oldest district of the city. As a must following with ",
+          <strong key="16">Onufri Iconographic Museum</strong>,
+          " inside the walls of the castle. The Museum holds 200 artwork objects, icons and liturgical items dated from the 14th century to the 20th, brought together from several churches and monasteries of the region. ",
+          <strong key="17">Overnight in Berat</strong>,
+          ".",
+        ],
+        imageUrl: "/images/tours/durres2.jpg",
       },
       {
         day: 4,
         title:
           "Apollonia Archaeological Park - Zvernec Island & Monastery – Vlora City tour. Overnight in Vlora. Full Day.",
-        description: `After breakfast, 1 hrs drive to Apollonia, once a resort town where wealthy Romans vacationed, is now a symbol of Albania’s rich cultural heritage. The ancient ruins of Apollonia in southwest Albania provide a fascinating window into the past. This once-prominent ancient city-state allows you to discover Albania’s role in the classical world and immerse yourself in rich history. The fascinating landscape of the archeological park, which has been preserved in an exceptionally intact condition, comprises a successful combination between the beauty of monuments and nature, attractive through its long history, in an atmosphere of relaxation and meditation. Drive to Zvernec Island 30 mins, located within the Narta Lagoon and home to an ancient Byzantine Monastery, situated on an island, the monastery is a stunning example of Byzantine architecture and a peaceful place to escape from the crowded beaches of the town. Continuing with Vlora city tour with: Independence Monument as the centerpiece of Vlore’s Square of the Flag, the Independence Monument marks Albania’s declaration of independence from the Ottoman Empire in 1912 and exemplifies the socialist-realist style. Overnight in Vlora. `,
+        description: [
+          "After breakfast, 1 hrs drive to ",
+          <strong key="10">Apollonia</strong>,
+          ", once a resort town where wealthy Romans vacationed, is now a symbol of Albania’s rich cultural heritage. The ancient ruins of Apollonia in southwest Albania provide a fascinating window into the past. This once-prominent ancient city-state allows you to discover Albania’s role in the classical world and immerse yourself in rich history. The fascinating landscape of the archeological park, which has been preserved in an exceptionally intact condition, comprises a successful combination between the beauty of monuments and nature, attractive through its long history, in an atmosphere of relaxation and meditation. Drive to ",
+          <strong key="11">Zvernec Island</strong>,
+          " 30 mins, located within the Narta Lagoon and home to an ancient Byzantine Monastery, situated on an island, the monastery is a stunning example of Byzantine architecture and a peaceful place to escape from the crowded beaches of the town. Continuing with ",
+          <strong key="12">Vlora city</strong>,
+          " tour with: Independence Monument as the centerpiece of Vlore’s Square of the Flag, the Independence Monument marks Albania’s declaration of independence from the Ottoman Empire in 1912 and exemplifies the socialist-realist style. ",
+          <strong key="13">Overnight in Vlora</strong>,
+          ".",
+        ],
+        imageUrl: "/images/tours/apollonia1.jpg",
       },
       {
         day: 5,
         title: "Gjirokastra Old Bazaar – Castle. Overnight in Gjirokastra",
-        description: ` Drive to Gjirokastra (UNESCO) called City of STONE, hometown of ex-dictator and the famous Internationally known writer Ismail KADARE. Visit: Castle of Gjirokastra as the Largest in ALBANIA one of the oldest in the Balkans! Bazaar Pass, filled with crafty artisans. In the city, you will also find the imposing Gjirokasër Castle, a construction of the first half of the 14th century. Indeed, due to the stone roofs on the hundreds of houses built on the slopes of multiple hills, the town magically retains the appearance of being coated in silver. Other must-see sites of the town include the old ottoman Bazaar, several beautiful Byzantine churches as well as Ottoman mosques. Overnight in Gjirokastra.  `,
+        description: [
+          "Drive to Gjirokastra (UNESCO) called City of STONE, hometown of ex-dictator and the famous Internationally known writer Ismail KADARE. Visit: Castle of Gjirokastra as the Largest in ALBANIA one of the oldest in the Balkans! Bazaar Pass, filled with crafty artisans. In the city, you will also find the imposing Gjirokasër Castle, a construction of the first half of the 14th century. Indeed, due to the stone roofs on the hundreds of houses built on the slopes of multiple hills, the town magically retains the appearance of being coated in silver. Other must-see sites of the town include the old ottoman Bazaar, several beautiful Byzantine churches as well as Ottoman mosques. ",
+          <strong key="10">Overnight in Gjirokastra</strong>,
+          ".",
+        ],
+
+        imageUrl: "/images/tours/gjirokastra3.jpg",
       },
       {
         day: 6,
         title:
           "Tirana city tour & Bunk Art 2 – House of Leaves. Overnight in Tirana. Full Day.",
-        description: `After breakfast, drive to capital city Tirana approx. 3.15 hrs. Tirana city Tour is for people who like to see the highlights of Tirana and get a better understanding of the history of one of the most interesting capitals of Europe. The tour will lead you to Skanderbeg square. Skanderbeg Square, Ethem Bey Mosque, National Bank, Skanderbeg Monument, Pedestrian area, Castle of Tirana, The “BLLOKU” area 
-Our next destination will be Bunk Art, one of Tirana's most intriguing museums. Step inside this immersive video exhibition, dedicated to unraveling the history of the Albanian communist army and offering poignant glimpses into the daily lives of citizens during that era. House of Leaves, In January 2015, the idea to transform the house into a museum was introduced to the public. It is situated right in the heart of the city. Is one of the most unusual museums in Albania. It is considered to be the equivalent of the Stasi headquarters of the former East Germany. 
-The leaves have a double meaning: things hidden in woods, but also the leave of books and files, on people. Overnight in Tirana.
-`,
+        description: [
+          "After breakfast, drive to capital city Tirana approx. 3.15 hrs. ",
+          <strong key="1">Tirana city Tour</strong>,
+          " is for people who like to see the highlights of Tirana and get a better understanding of the history of one of the most interesting capitals of Europe. The tour will lead you to Skanderbeg square. Skanderbeg Square, Ethem Bey Mosque, National Bank, Skanderbeg Monument, Pedestrian area, Castle of Tirana, The “BLLOKU” area. ",
+          "Our next destination will be ",
+          <strong key="2">Bunk Art</strong>,
+          ", one of Tirana's most intriguing museums. Step inside this immersive video exhibition, dedicated to unraveling the history of the Albanian communist army and offering poignant glimpses into the daily lives of citizens during that era. ",
+          <strong key="3">House of Leaves</strong>,
+          ", In January 2015, the idea to transform the house into a museum was introduced to the public. It is situated right in the heart of the city. Is one of the most unusual museums in Albania. It is considered to be the equivalent of the Stasi headquarters of the former East Germany. The leaves have a double meaning: things hidden in woods, but also the leave of books and files, on people. ",
+          <strong key="4">Overnight in Tirana</strong>,
+          ".",
+        ],
+
+        imageUrl: "/images/tours/gjirokastra4.jpg",
       },
       {
         day: 7,
         title: "Airport transfer. ",
+        description: (
+          <>
+            Transfer to the airport.{" "}
+            <span className="text-red-500 font-bold">End of services.</span>
+          </>
+        ),
+      },
+    ],
+  },
+  {
+    name: "Highlights of Albania in five days",
+    location: "Tirana, Durres, Belsh, Berat, Zvernec, Vlora",
+    rating: 5,
+    imageUrl: "src/images/image5.jpg",
+    details: [
+      {
+        day: 1,
+        title:
+          "Day 1. Airport transfer. Tirana city tour. Overnight in Tirana. Half Day. ",
+        description: [
+          "Meet and greet. Airport transfer. ",
+          <strong key="1">Tirana Walking Tour</strong>,
+          " is for people who like to see the highlights of Tirana and get a better understanding of the history of one of the most interesting capitals of Europe. The tour will lead you to Skanderbeg square. Skanderbeg Square, Ethem Bey Mosque, National Bank, Skanderbeg Monument, Pedestrian area, Castle of Tirana, The “BLLOKU” area. ",
+          <strong key="2">Overnight in Tirana</strong>,
+          ".",
+        ],
+        imageUrl: "/images/tours/vlora4.jpg",
+      },
+      {
+        day: 2,
+        title:
+          "Day 2.  Tirana - Bunk Art 2 – House of Leaves - Cable Car - Bunk Art 1. Overnight in Tirana. Full Day ",
+        description: [
+          "After breakfast, our next destination is ",
+          <strong key="1">Bunk Art 2</strong>,
+          ", one of Tirana's most intriguing museums. Step inside this immersive video exhibition, dedicated to unraveling the history of the Albanian communist army and offering poignant glimpses into the daily lives of citizens during that era. ",
+          <strong key="2">House of Leaves</strong>,
+          ", In January 2015, the idea to transform the house into a museum was introduced to the public. It is situated right in the heart of the city. Is one of the most unusual museums in Albania. It is considered to be the equivalent of the Stasi headquarters of the former East Germany. The leaves have a double meaning: things hidden in woods, but also the leave of books and files, on people. A 10-minute drive to reach the ",
+          <strong key="3">Cable Car</strong>,
+          " of Tirana. Exploring ",
+          <strong key="4">Mount Dajti National Park</strong>,
+          " after the adrenaline of the Cable Car the longest cableway in Balkan and enjoy the breathtaking views of the capital city and not only. Several activities on top available: Adventure Park, Hiking, Paragliding, Minigolf, Roller Blading available. Heading to ",
+          <strong key="5">Bunk Art 1</strong>,
+          ", a huge nuclear bunker on the outskirts of Albania's capital Tirana that was intended as a shelter for dictator Enver Hoxha and the innermost circle of his government. In 2014-2016 the once secret facility was refurbished and opened as a museum and art centre. A 5-floor palace underground, with 106 rooms and an assembly hall, now turned into an historical and art center called \"BUNK'ART\". ",
+          <strong key="6">Overnight Tirana</strong>,
+          ".",
+        ],
+      },
+      {
+        day: 3,
+        title:
+          "Day 3.  Durres & Roman Amphitheater – Kruja - Museum & Castle - Old Medieval Bazaar. Overnight Tirana.",
+        description: [
+          "After breakfast, drive to ",
+          <strong key="1">Durres</strong>,
+          " 40 minutes and city tour. As one of the biggest city ports in Albania visiting: ",
+          <strong key="2">Venetian Tower</strong>,
+          ", ",
+          <strong key="3">The Largest Roman Amphitheater</strong>,
+          ", ",
+          <strong key="4">The Promenade by the Adriatic Sea</strong>,
+          ". Drive to ",
+          <strong key="5">Kruja</strong>,
+          " 1 hour. ",
+          <strong key="6">Kruja</strong>,
+          ", hometown of National Hero Gjerjg Kastrioti Skanderbeg the Symbol of Ottoman Resistance also known as Protector of Civilization. Visit: ",
+          <strong key="7">Fortress</strong>,
+          ", ",
+          <strong key="8">
+            National Hero Skanderbeg Museum & the Ethnographic Museum
+          </strong>,
+          " (both located inside the walls of the fortress). Stroll down the ",
+          <strong key="9">Unique Old Medieval Bazaar</strong>,
+          " as one of the oldest in Albania, offering a vibrant atmosphere with traditional Albanian crafts, souvenirs, and local cuisine. Having such a unique blend of historical charm and natural beauty, Krujë is simply a must-visit place. ",
+          <strong key="10">Overnight Tirana</strong>,
+          ".",
+        ],
+      },
+      {
+        day: 4,
+        title:
+          "Day 4. Belshi Lakes - Berat UNESCO & Castle - Zvernec Island - Vlora city tour. Full Day",
+
+        description: [
+          "After breakfast, drive via ",
+          <strong key="1">Belsh Lake</strong>,
+          " offering an impressive panorama, creating an awe-inspiring vista. Stop and visit: ",
+          <strong key="2">Berat UNESCO</strong>,
+          " known as “The city of One above the other Widows” that continues to be a significant city even today, boasting a remarkable history of over two millennia. Despite the passage of time, life has remained persistent here, and the Castle or “Kalaja” is the oldest district of the city. As a must following with ",
+          <strong key="3">Onufri Iconographic Museum</strong>,
+          " inside the walls of the castle. The Museum holds 200 artwork objects, icons, and liturgical items dated from the 14th century to the 20th, brought together from several churches and monasteries of the region. Next stop is ",
+          <strong key="4">Zvërnec Island</strong>,
+          " & Monastery. Visit Zvërnec Island, located within the Narta Lagoon and home to an ancient Byzantine Monastery, situated on an island, the monastery is a stunning example of Byzantine architecture and a peaceful place to escape from the crowded beaches of the town. ",
+          <strong key="5">Vlora city</strong>,
+          " tour with: Independence Monument as the centerpiece of Vlore’s Square of the Flag, the Independence Monument marks Albania’s declaration of independence from the Ottoman Empire in 1912 and exemplifies the socialist-realist style. ",
+          <strong key="6">Overnight in Vlora</strong>,
+          ".",
+        ],
+      },
+      {
+        day: 5,
+        title: "Day 5. Airport transfer.",
+        description: (
+          <>
+            Transfer to the airport.{" "}
+            <span className="text-red-500 font-bold">End of services.</span>
+          </>
+        ),
+      },
+    ],
+  },
+
+  {
+    name: "History highlights of Albania and culture in six days",
+    location: "Tirana, Kruja, Shkodra, Durres, Berat, Zvernec, Vlora",
+    rating: 5,
+    imageUrl: "src/images/image5.jpg",
+    details: [
+      {
+        day: 1,
+        title:
+          "Day 1. Airport transfer. Tirana city tour. Overnight in Tirana. Half Day. ",
+        description: [
+          "Meet and greet. Airport transfer. ",
+          <strong key="1">Tirana Walking Tour</strong>,
+          " is for people who like to see the highlights of Tirana and get a better understanding of the history of one of the most interesting capitals of Europe. The tour will lead you to Skanderbeg square. Skanderbeg Square, Ethem Bey Mosque, National Bank, Skanderbeg Monument, Pedestrian area, Castle of Tirana, The “BLLOKU” area. ",
+          <strong key="2">Overnight in Tirana</strong>,
+          ".",
+        ],
+        imageUrl: "/images/tours/vlora4.jpg",
+      },
+      {
+        day: 2,
+        title:
+          "Day 2.  Tirana - Bunk Art 2 – House of Leaves - Cable Car - Bunk Art 1. Overnight in Tirana. Full Day ",
+        description: [
+          "After breakfast, our next destination is ",
+          <strong key="1">Bunk Art 2</strong>,
+          ", one of Tirana's most intriguing museums. Step inside this immersive video exhibition, dedicated to unraveling the history of the Albanian communist army and offering poignant glimpses into the daily lives of citizens during that era. ",
+          <strong key="2">House of Leaves</strong>,
+          ", introduced to the public in January 2015 as a museum, is situated right in the heart of the city. It is one of the most unusual museums in Albania and is considered to be the equivalent of the Stasi headquarters of the former East Germany. The leaves have a double meaning: things hidden in woods, but also the leaves of books and files, on people. ",
+          "A 10-minute drive to reach the cable car of Tirana. Exploring Mount Dajti National Park after the adrenaline of the Cable Car, the longest cableway in the Balkans, and enjoy the breathtaking views of the capital city and beyond. Several activities on top available: Adventure Park, Hiking, Paragliding, Minigolf, Roller Blading available. ",
+          "Heading to ",
+          <strong key="3">Bunk Art 1</strong>,
+          ", a huge nuclear bunker on the outskirts of Albania's capital Tirana that was intended as a shelter for dictator Enver Hoxha and the innermost circle of his government. In 2014-2016, the once-secret facility was refurbished and opened as a museum and art centre. A 5-floor palace underground, with 106 rooms and an assembly hall, now turned into a historical and art center called ",
+          <strong key="4">BUNK ART</strong>,
+          ". ",
+          <strong key="5">Overnight in Tirana</strong>,
+          ".",
+        ],
+      },
+      {
+        day: 3,
+        title:
+          "Day 3.  Kruja - Museums & Castle - Old Medieval Bazaar. Shkodra & Castle – City tour & Venetian Mask Factory. Overnight Shkodra. Full Day.",
+        description: [
+          "After breakfast, drive to ",
+          <strong key="1">Kruja</strong>,
+          " (1 hour). Kruja, the hometown of National Hero Gjergj Kastrioti Skanderbeg, the Symbol of Ottoman Resistance and Protector of Civilization. Visit: ",
+          <strong key="2">
+            Fortress, National Hero Skanderbeg Museum & the Ethnographic Museum
+          </strong>,
+          " (both located inside the walls of the fortress). Stroll down the ",
+          <strong key="3">Unique Old Medieval Bazaar</strong>,
+          " as one of the oldest in Albania, offering a vibrant atmosphere with traditional Albanian crafts, souvenirs, and local cuisine. A 1.30 hrs drive to ",
+          <strong key="4">Shkodra</strong>,
+          ", northwest of Albania. Go on an in-depth exploration of Shkodra on this full-day tour starting with its prehistoric ",
+          <strong key="5">Rozafa Castle</strong>,
+          " as one of the oldest castles in Albania, built by the Illyrian civilization in the 4th century B.C. Continue downhill to Shkodra, to visit: The Catholic cathedral, the main Mosque, a major ",
+          <strong key="6">pedestrian boulevard</strong>,
+          ", and more…. Continuing with the ",
+          <strong key="7">Venetian Mask Factory</strong>,
+          " that contains the most diverse and exquisite collection of Venetian masks. The display of styles and colors is enough to immediately transport you to the atmosphere of the Venice Carnevale. The sheer originality and quality of these works, in addition to the fact that each mask is treated as a unique work of art, has contributed to this factory’s increase in worldwide popularity. ",
+          <strong key="8">Overnight in Shkodra</strong>,
+          ".",
+        ],
+      },
+      {
+        day: 4,
+        title:
+          "Day 4.  Durres – Roman Amphitheatre & Venetian Tower. Berat UNESCO & Castle – Onufri Museum. Overnight in Berat. Full day.",
+
+        description: [
+          "After breakfast, drive to ",
+          <strong key="1">Durres</strong>,
+          " (2 hrs) as one of the biggest city ports in Albania visiting: ",
+          <strong key="2">Venetian Tower</strong>,
+          ", ",
+          <strong key="3">The Regional largest Roman Amphitheater</strong>,
+          ", and ",
+          <strong key="4">The Promenade by the Adriatic Sea</strong>,
+          ". Drive to ",
+          <strong key="5">Berat UNESCO</strong>,
+          " (1.15 hrs) known as “The city of One above the other Widows” that continues to be a significant city even today, boasting a remarkable history of over two millennia. Despite the passage of time, life has remained persistent here, and the Castle or “Kalaja” is the oldest district of the city. As a must following with ",
+          <strong key="6">Onufri Iconographic Museum</strong>,
+          " inside the walls of the castle. The Museum holds 200 artwork objects, icons, and liturgical items dated from the 14th century to the 20th, brought together from several churches and monasteries of the region. ",
+          <strong key="7">Overnight in Berat</strong>,
+          ".",
+        ],
+      },
+      {
+        day: 5,
+        title:
+          "Day 5. Zvernec Island & Monastery – Vlora City tour. Overnight in Vlora.  ",
+        description: [
+          "After breakfast, drive 1.30 hrs to ",
+          <strong key="1">Zvernec Island</strong>,
+          ", located within the Narta Lagoon and home to an ancient Byzantine Monastery, situated on an island. The monastery is a stunning example of Byzantine architecture and a peaceful place to escape from the crowded beaches of the town. ",
+          <strong key="2">Vlora city</strong>,
+          " tour with: Independence Monument as the centerpiece of Vlore’s Square of the Flag. The Independence Monument marks Albania’s declaration of independence from the Ottoman Empire in 1912 and exemplifies the socialist-realist style. ",
+          <strong key="3">Overnight in Vlora</strong>,
+          ".",
+        ],
+      },
+      {
+        day: 6,
+        title: "Day 6. Airport transfer. ",
+        description: (
+          <>
+            Transfer to the airport.{" "}
+            <span className="text-red-500 font-bold">End of services.</span>
+          </>
+        ),
+      },
+    ],
+  },
+  {
+    name: "Treasures of Albania in eight days",
+    location:
+      "Tirana, Kruja,Apollonia, Llogara, Porto Palermo, Shkodra, Durres, Berat, Zvernec, Vlora",
+    rating: 5,
+    imageUrl: "src/images/image5.jpg",
+    details: [
+      {
+        day: 1,
+        title:
+          "Day 1: Airport transfer. Durres city tour & Roman Amphitheatre. Overnight in Durres.. ",
+        description: [
+          "Welcome to Albania. Meet and greet @ Tirana airport and transfer to Durres (40 minutes). ",
+          "The absolute best place to start off your walk-through ancient history is the ",
+          <strong key="1">Roman amphitheater</strong>,
+          ", as one of the largest Roman constructions in the region and one of the most famous architectural wonders of Emperor Trajan’s time. Durres is home to the biggest seaport city in the country and to many ancient archaeological sites and finds. The most notable tourist attraction in Durrës is the Roman amphitheater with 15,000 seats, the second biggest amphitheater in the Balkans. It is one of the most ancient cities in Albania, with almost 3,000 years of history. Enjoy some free time in the pedestrian street Vollga in front of the sea. ",
+          <strong key="2">Overnight in Durres</strong>,
+          ".",
+        ],
+
+        imageUrl: "/images/tours/vlora4.jpg",
+      },
+      {
+        day: 2,
+        title:
+          "Day 2: Durres – Apollonia Archaeological Park. Vlora & Zvernec island & Flag Square. Overnight in Vlore (130 km – 2hrs) Full day. ",
+        description: [
+          "After breakfast, 1.15 hrs drive to ",
+          <strong key="1">Apollonia Archaeological site</strong>,
+          ". Experience the Greatness of Antiquity. If we could choose the one place where you will have your most memorable encounter with history in Albania, it would have to be the ancient city of Apollonia, founded in the sixth century B.C. Apollonia is a gorgeous archaeological site. In ancient times, Apollonia was one of the most important economic and trade centers of Albania. The future Roman emperor Octavian Augustus also studied in this city. The site hosts also an Orthodox monastery. ",
+          "A 30 min drive to reach ",
+          <strong key="2">Vlora</strong>,
+          " & visit the monastery of ",
+          <strong key="3">Zvernec</strong>,
+          " located on the island. Covered in pines, the small gorgeous island of Zvernec off the coast of Vlora can be reached by walking along a 270-meter-long wooden bridge, offering the visitor a one-of-a-kind experience with nature. Drive to the city center (20 mins), a seaside city not important only because of the port but it has a huge importance in the history of Albania. In this city Ismail Qemali, the founder of modern Albania, proclaimed the independence of Albania in 1912. ",
+          <strong key="4">Overnight in Vlora</strong>,
+          ".",
+        ],
+        imageUrl: "/images/tours/apolonia1.jpg",
+      },
+      {
+        day: 3,
+        title:
+          "Day 3: Via Llogara National Park, Albanian Riviera, Porto Palermo Castle. Overnight in Sarande (146km). Full day",
+        description: [
+          "After breakfast, first stop (50 mins drive) is ",
+          <strong key="1">Llogara National Park</strong>,
+          ": The Best of All Worlds Where the Adriatic and the Ionian Seas meet, begins the journey towards the Llogara National Park. The lush forests of pines and oaks are only the beginning of this “mountain of panoramas,” which is beautifully surrounded by numerous mountain ranges and the majestic Ionian Sea. Drive on the Albanian Riviera looking at the Ionian Sea. Stunning sceneries await us at the Llogara pass, about 1096 meters above sea level. Continuing for about 1 hour drive to reach & visit the Most Picturesque Albanian Castles of the Riviera, ",
+          <strong key="2">Porto Palermo</strong>,
+          ". Built on the hill of an island, connected to the shore via a narrow man-made strip of land, this Castle attracts everyone’s immediate attention. The castle was built in the 19th century at the request of Ali Pashë Tepelena, (an Albanian ruler who served as Pasha of the Pashalik of Ioannina) after the destruction of Justinian’s castle. Drive 1 hr. ",
+          <strong key="3">Overnight in Saranda</strong>,
+          ".",
+        ],
+        imageUrl: "/images/tours/vlora3.jpg",
+      },
+      {
+        day: 4,
+        title:
+          "Day 4: Sarande – Butrint – free time Ksamil Beach. Overnight in Sarande (42 km). Full day.",
+
+        description: [
+          "After breakfast, (30 min) to the ancient city of ",
+          <strong key="1">Butrint</strong>,
+          ", ",
+          <strong key="2">a UNESCO World Heritage Site</strong>,
+          ". Witness the Stages of Mediterranean Civilization: Butrint National Park: Built in the 8th century BC, and used as a transit station between Epirus (which were within the borders of today's Albania) and the Italian territories to the south. Butrint was colonized by many, even by the Romans under Julius Caesar in 44 BC, and later occupied by the Byzantine, Venetian, and Ottoman empires. Free time in ",
+          <strong key="3">Ksamil Beach</strong>,
+          " considered as the “Maldives of Europe” and the crystal waters of the Ionian Sea. ",
+          <strong key="4">Overnight in Saranda</strong>,
+          ".",
+        ],
+        imageUrl: "/images/tours/saranda3.jpg",
+      },
+      {
+        day: 5,
+        title:
+          "Day 5: Sarande - Blue Eye – Gjirokaster city tour & Castle. Overnight in Gjirokastra. (57km - 1h 30min). Full day. ",
+        description: [
+          "After breakfast, 30 min drive to ",
+          <strong key="1">The Blue Eye</strong>,
+          ", Europe’s Tropical Oasis. As unexpectedly spectacular as the coast of Southern Albania is, a water spring with extremely light blue water bubbles in a more than 50-metre-deep pool. You’ll be mesmerized by how clear the water is, to the point that you’ll be able to see straight to the bottom. ",
+          <strong key="2">Gjirokastra City of Stone</strong>,
+          ". Last stop for the day (1 hrs drive) will be Gjirokaster, a  ",
+          <strong key="3">UNESCO </strong>,
+          " site and museum town with very distinct architecture. One of UNESCO’s World Heritage Sites, this gorgeous, carefully preserved, peculiar-looking city is built on steep slopes where stone-roofed houses seem to be built on top of one another. ",
+          <strong key="4">THE CASTLE OF GJIROKASTRA</strong>,
+          ": WARS, LEGENDS, AND FEASTS. The Castle of Gjirokastra resides in a dramatic location, on the hilltop overlooking the city. It gave a nifty vantage point to witness the changing tides of Albanian history across the centuries. Free time. ",
+          <strong key="5">Overnight in Gjirokastra</strong>,
+          ".",
+        ],
+        imageUrl: "/images/tours/saranda4.jpg",
+      },
+      {
+        day: 6,
+        title:
+          "Day 6: Gjirokaster – Berat city tour, Castle & Onufri Ichnographic Museum. Overnight in Tirane (260 km - 5h). Full day.",
+        description: [
+          "After breakfast drive to ",
+          <strong key="1">Berat</strong>,
+          " (2.30 hrs), known as the city of “One above the other Windows” Bridges and Rugged Outdoors, that has placed Berat in UNESCO’s list of world Heritage Sites. ",
+          <strong key="2">Berat Castle</strong>,
+          " has particular interest as people still live within its walls in their traditional houses, as have their ancestors for centuries. The castle used to have over many churches of which 7 still remain, including one turned into ",
+          <strong key="3">Onufri Ichnographic Museum</strong>,
+          ". Onufri was an Albanian Icon master painter of the 16th century who painted many orthodox churches in Albania, and he used a unique red color for his icons, which still today no one else can copy. Heading to Tirana (2 hrs drive). ",
+          <strong key="4">Overnight in Tirana</strong>,
+          ".",
+        ],
+        imageUrl: "/images/tours/gjirokastra3.jpg",
+      },
+      {
+        day: 7,
+        title:
+          "Day 7: Tirane Skenderbej Square - Kruje Old Medieval Bazaar & Skenderbej Museum. Overnight in Tirana (65km). Full day. ",
+        description: [
+          "After breakfast, start the tour of ",
+          <strong key="1">Tirana</strong>,
+          ": Tirana, Europe's Last Exotic Capital. This metropolitan capital has undergone modernization at lightning speed while much of its Ottoman, Italian, and communist architecture recall its history and old-world spirit. Visit Tirana - the heart and capital of Albania. Have a walk from the main square through the boulevard. Your journey begins by visiting the key spots such as Skënderbej Square, where you will be able to see the 35m high Kulla e Sahatit (the Clock Tower), Skenderbej monument, the National Opera, National Bank, Et’hem Bej Mosque, and Bunk Art 2. ",
+          "Drive to ",
+          <strong key="2">Kruja Home of Tradition and Skanderbeg</strong>,
+          " (1 hour). Rich in history and tradition, Kruja is home of the patriots and the epicenter of Albania’s independence from the Ottoman Empire. It was here that ",
+          <strong key="3">Gjergj Kastrioti Skanderbeg</strong>,
+          " Albania’s greatest national hero, defended the country from the invasion of the Ottomans. Gjergj Kastrioti Skanderbeg Museum is situated inside the castle walls, which dates back to the fifth and sixth centuries A.D. Near the castle’s entrance is a traditional market, ",
+          <strong key="4">The Unique Old Medieval Bazaar Museum</strong>,
+          ", which dates back to the period of Skanderbeg. Here, you can find Albanian craft products such as embroidered items, carpeting, silver objects, copper, alabaster, filigree, traditional clothing, antiques at the traditional Old Bazaar of Kruja. Drive back (1 hour). ",
+          <strong key="5">Overnight in Tirana</strong>,
+          ".",
+        ],
+        imageUrl: "/images/tours/kruja1.jpg",
+      },
+      {
+        day: 8,
+        title: "Day 6. Airport transfer. ",
+        description: (
+          <>
+            Transfer to the airport.{" "}
+            <span className="text-red-500 font-bold">End of services.</span>
+          </>
+        ),
       },
     ],
   },
@@ -324,43 +780,45 @@ const TourDetails = () => {
       </p>
 
       <div className="space-y-12">
-        {tour.details.map((day, index) => (
-          <div
-            key={index}
-            className={`grid grid-cols-1 ${
-              index === 10 // Only apply for Day 11 (0-based index)
-                ? ""
-                : "md:grid-cols-2 gap-6 items-center"
-            } ${index % 2 === 0 ? "" : "md:flex-row-reverse"}`}
-          >
-            {/* Text Section */}
-            <div
-              className={`bg-white shadow-lg rounded-lg p-6 ${
-                index === 10 ? "w-full" : "h-80"
-              } overflow-hidden flex items-center justify-center`}
-            >
-              <div
-                className={`${index === 10 ? "" : "overflow-y-auto h-full"}`}
-              >
-                <h2 className="text-2xl font-bold mb-4">
-                  Day {index + 1}: {day.title}
-                </h2>
-                <p className="text-gray-700">{day.description}</p>
-              </div>
-            </div>
+        {tour.details.map((day, index) => {
+          const isLastDay = index === tour.details.length - 1;
 
-            {/* Photo Section */}
-            {index !== 10 && (
-              <div className="bg-gray-100 shadow-lg rounded-lg overflow-hidden h-80 flex items-center justify-center">
-                <img
-                  src={day.imageUrl}
-                  alt={`Day ${index + 1} - ${day.title}`}
-                  className="w-full h-full object-cover"
-                />
+          return (
+            <div
+              key={index}
+              className={`grid grid-cols-1 ${
+                !isLastDay ? "md:grid-cols-2 gap-6 items-center" : ""
+              } ${index % 2 !== 0 && !isLastDay ? "md:flex-row-reverse" : ""}`}
+            >
+              {/* Text Section */}
+              <div
+                className={`bg-white shadow-lg rounded-lg p-6 ${
+                  isLastDay ? "w-full" : "h-80"
+                } overflow-hidden flex items-center justify-center`}
+              >
+                <div
+                  className={`${!isLastDay ? "overflow-y-auto h-full" : ""}`}
+                >
+                  <h2 className="text-2xl font-bold mb-4">
+                    Day {index + 1}: {day.title}
+                  </h2>
+                  <p className="text-gray-700">{day.description}</p>
+                </div>
               </div>
-            )}
-          </div>
-        ))}
+
+              {/* Photo Section */}
+              {!isLastDay && (
+                <div className="bg-gray-100 shadow-lg rounded-lg overflow-hidden h-80 flex items-center justify-center">
+                  <img
+                    src={day.imageUrl}
+                    alt={`Day ${index + 1} - ${day.title}`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
 
       {/* Back and Action Buttons */}
